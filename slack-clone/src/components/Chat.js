@@ -66,7 +66,10 @@ function Chat() {
               {" "}
               <div className="message-data">
                 <h4>{d.data().message}</h4>
-                {/* <p>{new Date(d?.data()?.timestamp.toDate()).toUTCString()}</p> */}
+                <p>
+                  {d?.data().timestamp &&
+                    new Date(d?.data()?.timestamp.toDate()).toUTCString()}
+                </p>
               </div>
             </div>
           </MessagesContainer>
