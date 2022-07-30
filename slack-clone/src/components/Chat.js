@@ -24,8 +24,8 @@ function Chat() {
   const [channels] = useCollection(
     channel &&
       query(
-        collection(db, "channels", channel, "messages")
-        // orderBy("timestamp", "asc")
+        collection(db, "channels", channel, "messages"),
+        orderBy("timestamp", "asc")
       )
   );
   const [user] = useAuthState(auth);
@@ -41,6 +41,7 @@ function Chat() {
         message: input,
         username: user?.displayName,
         url: user.photoURL,
+        timestamp: serverTimestamp(),
       });
 
       setInput("");
